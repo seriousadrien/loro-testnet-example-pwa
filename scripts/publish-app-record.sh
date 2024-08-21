@@ -70,10 +70,10 @@ if [ -z "$CERC_REGISTRY_APP_CRN" ]; then
   REVEAL_FILE=$(laconic -c $CONFIG_FILE registry auction bid commit $AUCTION_ID 5000000 alnt --user-key "${CERC_REGISTRY_USER_KEY}" | jq -r '.reveal_file')
   echo 'REVEAL_FILE'
   echo $REVEAL_FILE
-  laconic -c $CONFIG_FILE registry auction bid reveal $AUCTION_ID $REVEAL_FILE
-  laconic -c $CONFIG_FILE registry auction get $AUCTION_ID
+  laconic -c $CONFIG_FILE registry auction bid reveal $AUCTION_ID $REVEAL_FILE --user-key "${CERC_REGISTRY_USER_KEY}"
+  laconic -c $CONFIG_FILE registry auction get $AUCTION_ID --user-key "${CERC_REGISTRY_USER_KEY}"
   laconic -c $CONFIG_FILE registry authority bond set ${authority} ${CERC_REGISTRY_BOND_ID} --user-key "${CERC_REGISTRY_USER_KEY}"
-  laconic -c $CONFIG_FILE registry authority whois ${authority}
+  laconic -c $CONFIG_FILE registry authority whois ${authority} --user-key "${CERC_REGISTRY_USER_KEY}"
 fi
 
 laconic -c $CONFIG_FILE registry name set --user-key "${CERC_REGISTRY_USER_KEY}" --bond-id ${CERC_REGISTRY_BOND_ID} "$CERC_REGISTRY_APP_CRN@${rcd_app_version}" "$AR_RECORD_ID"
