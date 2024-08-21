@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "seriousadrien_webapp_10",
-  "version": "0.1.26",
+  "name": "seriousadrien_webapp_11",
+  "version": "0.1.27",
   "repository": "https://github.com/seriousadrien/loro-testnet-example-pwa",
   "scripts": {
     "dev": "next dev",
