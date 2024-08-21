@@ -66,7 +66,7 @@ if [ -z "$CERC_REGISTRY_APP_CRN" ]; then
   app=$(echo "$rcd_name" | cut -d'/' -f2-)
   CERC_REGISTRY_APP_CRN="lrn://$authority/applications/$app"
   laconic -c $CONFIG_FILE registry authority reserve ${authority} --user-key "${CERC_REGISTRY_USER_KEY}"
-  AUCTION_ID=$(laconic -c $CONFIG_FILE registry autority whois ${authority} | jq -r '.auction' | jq -r '.id')
+  AUCTION_ID=$(laconic -c $CONFIG_FILE registry autority whois ${authority} | jq -r '.[] | .auction | .id')
   echo $AUCTION_ID
   REVEAL_FILE=$(laconic -c $CONFIG_FILE registry auction bid commit $AUCTION_ID 5000000 alnt | jq -r '.reveal_file')
   echo $REVEAL_FILE
