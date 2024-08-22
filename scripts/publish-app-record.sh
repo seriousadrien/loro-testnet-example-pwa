@@ -24,8 +24,8 @@ services:
     rpcEndpoint: '${CERC_REGISTRY_REST_ENDPOINT:-https://laconicd.laconic.com}'
     gqlEndpoint: '${CERC_REGISTRY_GQL_ENDPOINT:-https://laconicd.laconic.com/api}'
     chainId: ${CERC_REGISTRY_CHAIN_ID:-laconic_9000-1}
-    gas: 1000
-    fees: 1500alnt
+    gas: 10000
+    fees: 15000alnt
 EOF
 
 if [ -z "$CERC_REGISTRY_BOND_ID" ]; then
